@@ -1,10 +1,19 @@
-namespace oferta_domain.Entities
+﻿using System.Collections.Generic;
+
+namespace oferta_domain
 {
-    public class StatusCliente
+    public partial class StatusCliente
     {
-        public int cod_status { get; set; }
-        public string descricao { get; set; }
-        public string finaliza_cliente { get; set; }
-        public string contabiliza_venda { get; set; }
+        public StatusCliente()
+        {
+            Clientes = new HashSet<Cliente>();
+        }
+
+        public long CodStatus { get; set; }
+        public string Descricao { get; set; }
+        public string FinalizaCliente { get; set; }
+        public string ContabilizaVenda { get; set; }
+
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }
