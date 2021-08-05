@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\oferta-infra\oferta-infra.csproj" />
+    <ProjectReference Include="..\oferta-domain\oferta-domain.csproj" />
   </ItemGroup>
 
 
