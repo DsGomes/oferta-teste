@@ -7,7 +7,7 @@ using oferta_domain.Interfaces;
 namespace oferta_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClientesController : ControllerBase
     {
         private readonly ILogger<ClientesController> _logger;
@@ -35,7 +35,7 @@ namespace oferta_api.Controllers
         }
 
         [HttpGet]
-        [Route("buscar-por-nome")]
+        [Route("buscar-por-cpf")]
         public ActionResult<Cliente> GetByCpf(byte[] cpf)
         {
             return Ok(_clientes.getByCPF(cpf));

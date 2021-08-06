@@ -7,7 +7,7 @@ using oferta_domain.Interfaces;
 namespace oferta_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class VendasController : ControllerBase
     {
         private readonly ILogger<VendasController> _logger;

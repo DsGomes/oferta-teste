@@ -20,6 +20,8 @@ namespace oferta_api
         {
             services.AddControllers();
             services.AddEntityFrameworkSqlite().AddDbContext<DataBaseContext>();
+
+            services.AddSwaggerGen();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -27,6 +29,8 @@ namespace oferta_api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Oferta WeChip v1"));
             }
 
             app.UseHttpsRedirection();

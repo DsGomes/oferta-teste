@@ -9,8 +9,5 @@
         public double Credito { get; set; }
         public long? Status { get; set; }
         public long? Endereco { get; set; }
-
-        public virtual Endereco Enderecos { get; set; }
-        public virtual StatusCliente StatusNavigation { get; set; }
     }
 }
