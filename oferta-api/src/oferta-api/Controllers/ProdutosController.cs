@@ -36,23 +36,26 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("inserir")]
-        public void Post(Produto produto)
+        public ActionResult Post(Produto produto)
         {
             _produtos.Add(produto);
+            return Created("/api/produtos/inserir", produto);
         }
 
         [HttpPut]
         [Route("atualizar")]
-        public void Put(Produto produto)
+        public ActionResult Put(Produto produto)
         {
             _produtos.Update(produto);
+            return Created("/api/produtos/atualizar", produto);
         }
 
         [HttpDelete]
         [Route("excluir")]
-        public void Delete(Produto produto)
+        public ActionResult Delete(Produto produto)
         {
             _produtos.Remove(produto);
+            return Ok();
         }
     }
 }

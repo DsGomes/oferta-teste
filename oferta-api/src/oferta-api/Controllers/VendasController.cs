@@ -33,5 +33,12 @@ namespace oferta_api.Controllers
         {
             return Ok(_vendas.GetById(clienteId));
         }
+
+        [HttpPost]
+        [Route("cadastrar-venda")]
+        public ActionResult Post(Venda venda){
+            _vendas.Add(venda);
+            return Created("/api/vendas/cadastrar-venda", venda);
+        }
     }
 }

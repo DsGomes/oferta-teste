@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace oferta_domain
 {
     public class Endereco
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
         public int cod_endereco { get; set; }
         public string rua { get; set; }
         public int numero { get; set; }
@@ -13,5 +14,6 @@ namespace oferta_domain
         public string cidade { get; set; }
         public string estado { get; set; }
         public long cep { get; set; }
+        public int cliente { get; set; }
     }
 }
