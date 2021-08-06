@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace oferta_domain
 {
     public partial class StatusCliente
     {
-
-        public long CodStatus { get; set; }
-        public string Descricao { get; set; }
-        public string FinalizaCliente { get; set; }
-        public string ContabilizaVenda { get; set; }
+        [Key]
+        public int cod_status { get; set; }
+        public string descricao { get; set; }
+        public string finaliza_cliente { get; set; }
+        public string contabiliza_venda { get; set; }
     }
 }

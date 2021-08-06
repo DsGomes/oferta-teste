@@ -1,10 +1,13 @@
-﻿namespace oferta_domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace oferta_domain
 {
-    public partial class Produto
+    public class Produto
     {
-        public long CodProduto { get; set; }
-        public string Descricao { get; set; }
-        public long Tipo { get; set; }
-        public double Preco { get; set; }
+        [Key]
+        public int cod_produto { get; set; }
+        public string descricao { get; set; }
+        public int tipo { get; set; }
+        public double preco { get; set; }
     }
 }

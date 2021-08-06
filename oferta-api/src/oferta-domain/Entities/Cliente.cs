@@ -1,13 +1,17 @@
-﻿namespace oferta_domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace oferta_domain
 {
-    public partial class Cliente
+    public class Cliente
     {
-        public long CodCliente { get; set; }
-        public byte[] Cpf { get; set; }
-        public string Nome { get; set; }
-        public byte[] Telefone { get; set; }
-        public double Credito { get; set; }
-        public long? Status { get; set; }
-        public long? Endereco { get; set; }
+        [Key]
+        public int cod_cliente { get; set; }
+        public long cpf { get; set; }
+        public string nome { get; set; }
+        public long telefone { get; set; }
+        public double credito { get; set; }
+        public int status { get; set; }
+        public int endereco { get; set; }
+
     }
 }

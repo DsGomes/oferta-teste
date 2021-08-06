@@ -28,5 +28,10 @@ namespace oferta_infra
                 optionsBuilder.UseSqlite("Filename=../../../data/oferta-database.db");
             }
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Venda>().HasNoKey();
+        }
     }
 }

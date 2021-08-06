@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace oferta_domain
 {
-    public partial class Endereco
+    public class Endereco
     {
-
-        public long CodEndereco { get; set; }
-        public string Rua { get; set; }
-        public long Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public byte[] Cep { get; set; }
+        [Key]
+        public int cod_endereco { get; set; }
+        public string rua { get; set; }
+        public int numero { get; set; }
+        public string complemento { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
+        public string estado { get; set; }
+        public long cep { get; set; }
     }
 }
