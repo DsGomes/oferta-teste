@@ -5,13 +5,21 @@ namespace oferta_domain
 {
     public class Cliente
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
-        public int cod_cliente { get; set; }
-        public long cpf { get; set; }
-        public string nome { get; set; }
-        public long telefone { get; set; }
-        public double credito { get; set; }
-        public int status { get; set; }
+        public Cliente(long cpf, string nome, long telefone, double credito)
+        {
+            this.cpf = cpf;
+            this.nome = nome;
+            this.telefone = telefone;
+            this.credito = credito;
+            this.status = 1;
+        }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
+        public int cod_cliente { get; private set; }
+        public long cpf { get; private set; }
+        public string nome { get; private set; }
+        public long telefone { get; private set; }
+        public double credito { get; private set; }
+        public int status { get; private set; }
     }
 }
