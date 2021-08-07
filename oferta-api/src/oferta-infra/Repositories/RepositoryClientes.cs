@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using oferta_domain;
 using oferta_domain.Interfaces;
 
@@ -11,14 +13,14 @@ namespace oferta_infra.Repositories
             _dbContext = dbContext;
         }
 
-        public Cliente getByCPF(byte[] cpf)
+        public Cliente getByCPF(long cpf)
         {
             return _dbContext.Set<Cliente>().Find(cpf);
         }
 
-        public Cliente getByName(string name)
+        public IEnumerable<Cliente> getByName(string name)
         {
-            return _dbContext.Set<Cliente>().Find(name);
+            return _dbContext.Set<Cliente>().Where(n => n.nome == name);
         }
     }
 }
