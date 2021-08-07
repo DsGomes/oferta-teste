@@ -12,12 +12,15 @@ namespace oferta_api.Controllers
     {
         private readonly ILogger<ClientesController> _logger;
         private readonly IRepositoryClientes _clientes;
+        private readonly IServiceClientes _clienteService;
 
-        public ClientesController(ILogger<ClientesController> logger, 
-                                    IRepositoryClientes clientes)
+        public ClientesController(ILogger<ClientesController> logger,
+                                    IRepositoryClientes clientes,
+                                    IServiceClientes clienteService)
         {
             _logger = logger;
             _clientes = clientes;
+            _clienteService = clienteService;
         }
 
         [HttpGet]
@@ -26,17 +29,17 @@ namespace oferta_api.Controllers
         {
             return Ok(_clientes.GetAll());
         }
-        
+
         [HttpGet]
         [Route("buscar-por-nome")]
-        public ActionResult<Cliente> GetByName(string name)
+        public ActionResult<IEnumerable<Cliente>> GetByName(string name)
         {
-            return Ok(_clientes.getByName(name));
+            return Ok(_clienteService.GetClienteByName(name));
         }
 
         [HttpGet]
         [Route("buscar-por-cpf")]
-        public ActionResult<Cliente> GetByCpf(byte[] cpf)
+        public ActionResult<Cliente> GetByCpf(long cpf)
         {
             return Ok(_clientes.getByCPF(cpf));
         }
