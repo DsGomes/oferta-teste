@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/oferta-api/oferta-api-solution/src/oferta-api/oferta-api.csproj",
+                "${workspaceFolder}/oferta-api/src/oferta-api/oferta-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/oferta-api/oferta-api-solution/src/oferta-api/oferta-api.csproj",
+                "${workspaceFolder}/oferta-api/src/oferta-api/oferta-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/oferta-api/oferta-api-solution/src/oferta-api/oferta-api.csproj",
+                "${workspaceFolder}/oferta-api/src/oferta-api/oferta-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

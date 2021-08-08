@@ -1,4 +1,6 @@
-namespace oferta_domain.Helpers
+using oferta_domain.Entities;
+
+namespace oferta_api.Helpers
 {
     public class Utils
     {

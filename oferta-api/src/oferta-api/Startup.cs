@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +7,10 @@ using Microsoft.AspNetCore.Authentication.Certificate;
 using oferta_infra;
 using oferta_domain.Interfaces;
 using oferta_infra.Repositories;
+using oferta_api.Configurations;
+using Microsoft.OpenApi.Models;
+using oferta_domain.Interfaces.Repositories;
+using oferta_domain.Services;
 
 namespace oferta_api
 {
@@ -22,17 +25,56 @@ namespace oferta_api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(
-                CertificateAuthenticationDefaults.AuthenticationScheme)
-                .AddCertificate();
             services.AddControllers();
             services.AddEntityFrameworkSqlite().AddDbContext<DataBaseContext>();
 
-            services.AddSwaggerGen();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyAllowSpecificOrigin",
+                builder => {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                });
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Oferta WeChip", Version = "v1" });
+
+				OpenApiSecurityScheme securityDefinition = new OpenApiSecurityScheme()
+				{
+					Name = "Bearer",
+					BearerFormat = "JWT",
+					Scheme = "bearer",
+					Description = "Specify the authorization token.",
+					In = ParameterLocation.Header,
+					Type = SecuritySchemeType.Http,
+				};
+				c.AddSecurityDefinition("jwt_auth", securityDefinition);
+
+				OpenApiSecurityScheme securityScheme = new OpenApiSecurityScheme()
+				{
+					Reference = new OpenApiReference()
+					{
+						Id = "jwt_auth",
+						Type = ReferenceType.SecurityScheme
+					}
+				};
+				OpenApiSecurityRequirement securityRequirements = new OpenApiSecurityRequirement()
+				{
+					{securityScheme, new string[] { }},
+				};
+				c.AddSecurityRequirement(securityRequirements);
+            });
 
             services.AddScoped<IRepositoryClientes, RepositoryClientes>();
             services.AddScoped<IRepositoryProdutos, RepositoryProdutos>();
             services.AddScoped<IRepositoryVendas, RepositoryVendas>();
+            services.AddScoped<IRepositoryUsuario, RepositoryUsuario>();
+            services.AddScoped<IServiceClientes, ClienteService>();
+
+            services.ConfigServiceAuthentication(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +91,9 @@ namespace oferta_api
 
             app.UseRouting();
 
+            app.UseCors("MyAllowSpecificOrigin");
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

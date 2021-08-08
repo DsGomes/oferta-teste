@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace oferta_domain
+namespace oferta_domain.Entities
 {
     public class Produto
     {

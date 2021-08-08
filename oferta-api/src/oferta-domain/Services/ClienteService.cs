@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using oferta_domain.Entities;
 using oferta_domain.Interfaces;
 
 namespace oferta_domain.Services
 {
-    public class ClienteService
+    public class ClienteService : IServiceClientes
     {
         private readonly IRepositoryClientes _clientesRepository;
 

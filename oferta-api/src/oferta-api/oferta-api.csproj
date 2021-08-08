@@ -1,21 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>oferta_api</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.0.0-preview6.19307.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.0.0-preview6.19307.2"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.8"/>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.17"/>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\oferta-infra\oferta-infra.csproj" />
-    <ProjectReference Include="..\oferta-domain\oferta-domain.csproj" />
+    <ProjectReference Include="..\oferta-infra\oferta-infra.csproj"/>
+    <ProjectReference Include="..\oferta-domain\oferta-domain.csproj"/>
   </ItemGroup>
-
-
 </Project>

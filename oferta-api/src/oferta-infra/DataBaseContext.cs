@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using oferta_domain;
+using oferta_domain.Entities;
 
 namespace oferta_infra
 {
@@ -20,6 +20,7 @@ namespace oferta_infra
         public virtual DbSet<StatusCliente> StatusClientes { get; set; }
         public virtual DbSet<TipoProduto> TipoProdutos { get; set; }
         public virtual DbSet<Venda> Vendas { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

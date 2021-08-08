@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using oferta_domain;
+using oferta_domain.Entities;
 using oferta_domain.Interfaces;
 
 namespace oferta_api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Sistema")]
     public class ProdutosController : ControllerBase
     {
         private readonly IRepositoryProdutos _produtos;
@@ -36,7 +38,7 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("inserir")]
-        public ActionResult Post(Produto produto)
+        public ActionResult Post([FromBody]Produto produto)
         {
             _produtos.Add(produto);
             return Created("/api/produtos/inserir", produto);
@@ -44,7 +46,7 @@ namespace oferta_api.Controllers
 
         [HttpPut]
         [Route("atualizar")]
-        public ActionResult Put(Produto produto)
+        public ActionResult Put([FromBody]Produto produto)
         {
             _produtos.Update(produto);
             return Created("/api/produtos/atualizar", produto);
@@ -52,7 +54,7 @@ namespace oferta_api.Controllers
 
         [HttpDelete]
         [Route("excluir")]
-        public ActionResult Delete(Produto produto)
+        public ActionResult Delete([FromBody]Produto produto)
         {
             _produtos.Remove(produto);
             return Ok();

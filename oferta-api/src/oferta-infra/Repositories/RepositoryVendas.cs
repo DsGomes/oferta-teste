@@ -1,4 +1,4 @@
-using oferta_domain;
+using oferta_domain.Entities;
 using oferta_domain.Interfaces;
 
 namespace oferta_infra.Repositories

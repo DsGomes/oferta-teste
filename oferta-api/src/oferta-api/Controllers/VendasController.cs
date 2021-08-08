@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using oferta_domain;
+using oferta_domain.Entities;
 using oferta_domain.Interfaces;
 
 namespace oferta_api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Sistema")]
     public class VendasController : ControllerBase
     {
         private readonly ILogger<VendasController> _logger;
@@ -36,7 +38,7 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("cadastrar-venda")]
-        public ActionResult Post(Venda venda){
+        public ActionResult Post([FromBody]Venda venda){
             _vendas.Add(venda);
             return Created("/api/vendas/cadastrar-venda", venda);
         }

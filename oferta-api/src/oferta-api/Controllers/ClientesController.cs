@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using oferta_domain;
+using oferta_domain.Entities;
 using oferta_domain.Interfaces;
 
 namespace oferta_api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Sistema")]
     public class ClientesController : ControllerBase
     {
         private readonly ILogger<ClientesController> _logger;
@@ -46,21 +48,21 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("inserir")]
-        public ActionResult Post(Cliente cliente){
+        public ActionResult Post([FromBody]Cliente cliente){
             _clientes.Add(cliente);
             return Created("/api/clientes/inserir", cliente);
         }
 
         [HttpPut]
         [Route("atualizar")]
-        public ActionResult Put(Cliente cliente){
+        public ActionResult Put([FromBody]Cliente cliente){
             _clientes.Update(cliente);
             return Created("/api/clientes/atualizar", cliente);
         }
 
         [HttpDelete]
         [Route("excluir")]
-        public ActionResult Delete(Cliente cliente){
+        public ActionResult Delete([FromBody]Cliente cliente){
             _clientes.Remove(cliente);
             return Ok();
         }

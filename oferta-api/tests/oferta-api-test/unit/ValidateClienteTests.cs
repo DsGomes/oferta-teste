@@ -1,5 +1,5 @@
-using oferta_domain;
-using oferta_domain.Helpers;
+using oferta_domain.Entities;
+using oferta_api.Helpers;
 using Xunit;
 
 namespace oferta_api_test.unit

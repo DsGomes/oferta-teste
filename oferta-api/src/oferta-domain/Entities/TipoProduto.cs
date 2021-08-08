@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace oferta_domain
+namespace oferta_domain.Entities
 {
     public partial class TipoProduto
     {
