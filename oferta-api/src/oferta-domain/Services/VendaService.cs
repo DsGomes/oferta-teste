@@ -8,21 +8,14 @@ namespace oferta_domain.Services
     public class VendaService : IserviceVendas
     {
         private readonly IRepositoryVendas _vendasRepository;
-        private readonly IRepositoryEnderecos _enderecosRepository;
 
-        public VendaService(IRepositoryVendas vendasRepository,
-                                IRepositoryEnderecos enderecosRepository)
+        public VendaService(IRepositoryVendas vendasRepository)
         {
             _vendasRepository = vendasRepository;
-            _enderecosRepository = enderecosRepository;
         }
 
-        public void CadastrarVenda(int id_cliente, Endereco endereco, int[] produtos)
+        public void CadastrarVenda(int id_cliente, int[] produtos)
         {
-            if(endereco != null){
-                _enderecosRepository.Add(endereco);
-            }
-
             foreach(var produto in produtos){
                 var venda = new Venda();
                 venda.Cliente = id_cliente;

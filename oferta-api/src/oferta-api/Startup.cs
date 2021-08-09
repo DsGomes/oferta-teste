@@ -72,6 +72,7 @@ namespace oferta_api
             services.AddScoped<IRepositoryProdutos, RepositoryProdutos>();
             services.AddScoped<IRepositoryVendas, RepositoryVendas>();
             services.AddScoped<IRepositoryUsuario, RepositoryUsuario>();
+            services.AddScoped<IRepositoryEnderecos, RepositoryEndereco>();
             services.AddScoped<IServiceClientes, ClienteService>();
 
             services.ConfigServiceAuthentication(Configuration);

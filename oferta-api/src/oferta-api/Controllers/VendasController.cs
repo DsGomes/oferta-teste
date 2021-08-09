@@ -43,8 +43,8 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("cadastrar-venda")]
-        public ActionResult Post(int id_cliente, [FromBody]Endereco endereco, [FromBody]int[] produtos){
-            _vendaService.CadastrarVenda(id_cliente, endereco, produtos);
+        public ActionResult Post(int id_cliente, [FromBody]int[] produtos){
+            _vendaService.CadastrarVenda(id_cliente, produtos);
             return StatusCode(201);
         }
     }

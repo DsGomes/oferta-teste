@@ -1,9 +1,0 @@
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\bin\Debug\netcoreapp3.1\oferta-domain.deps.json
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\bin\Debug\netcoreapp3.1\oferta-domain.dll
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\bin\Debug\netcoreapp3.1\oferta-domain.pdb
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.AssemblyInfoInputs.cache
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.AssemblyInfo.cs
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.csproj.CoreCompileInputs.cache
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.dll
-F:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.pdb
-f:\Teste\oferta-teste\oferta-api\src\oferta-domain\obj\Debug\netcoreapp3.1\oferta-domain.csproj.AssemblyReference.cache
