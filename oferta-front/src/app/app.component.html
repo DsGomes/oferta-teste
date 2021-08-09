@@ -52,6 +52,14 @@
     margin: 0 8px;
   }
 
+  .toolbar a{
+    color: white;
+  }
+
+  .toolbar a:hover{
+    color: #888;
+  }
+
   .toolbar #youtube-logo {
     height: 40px;
     margin: 0 16px;
@@ -307,8 +315,9 @@
   />
   <span>Sistema de ofertas</span>
     <div class="spacer"></div>
-    <span>Home</span>
-    <span>Clientes</span>
+    <span><a routerLink="/">Home</a></span>
+    <a routerLink="/cadastro-cliente"><span>Cadastro Clientes</span></a>
+    <a routerLink="/ofertas"><span>Ofertas</span></a>
 </div>
 
 <div class="content" role="main">
