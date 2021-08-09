@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using oferta_domain.Entities;
 using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Services;
 
 namespace oferta_api.Controllers
 {
@@ -13,12 +15,15 @@ namespace oferta_api.Controllers
     public class VendasController : ControllerBase
     {
         private readonly ILogger<VendasController> _logger;
+        private readonly IserviceVendas _vendaService;
         private readonly IRepositoryVendas _vendas;
 
         public VendasController(ILogger<VendasController> logger,
+                                    IserviceVendas vendaService,
                                     IRepositoryVendas vendas)
         {
             _logger = logger;
+            _vendaService = vendaService;
             _vendas = vendas;
         }
 
@@ -38,9 +43,9 @@ namespace oferta_api.Controllers
 
         [HttpPost]
         [Route("cadastrar-venda")]
-        public ActionResult Post([FromBody]Venda venda){
-            _vendas.Add(venda);
-            return Created("/api/vendas/cadastrar-venda", venda);
+        public ActionResult Post(int id_cliente, [FromBody]Endereco endereco, [FromBody]int[] produtos){
+            _vendaService.CadastrarVenda(id_cliente, endereco, produtos);
+            return StatusCode(201);
         }
     }
 }

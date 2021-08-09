@@ -2,7 +2,7 @@
 {
     public partial class Venda
     {
-        public long? Cliente { get; set; }
-        public long? Produto { get; set; }
+        public int Cliente { get; set; }
+        public int Produto { get; set; }
     }
 }
