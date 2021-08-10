@@ -13,22 +13,40 @@ export class OfertaClienteComponent implements OnInit {
 
   form: any;
   cpf: string = '';
+  cliente: any;
 
   constructor(private formBuilder: FormBuilder,
+              private buscaService: BuscaService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.criarForma();
     this.cpf = location.href.split('/')[5]
+    this.buscaService.buscar('', this.cpf)
+        .subscribe(
+          response => {
+              this.cliente = response;
+              this.criarForma();
+          },
+          err => {
+              this.cliente = err;
+          }
+      );
   }
 
   criarForma(): void{
     this.form = this.formBuilder.group({
-      nome: [''],
-      cpf: [''],
-      telefone: [''],
-      credito: [''],
-      status: ['']
+      nome: this.cliente[0].nome,
+      cpf: this.cliente[0].cpf,
+      telefone: this.cliente[0].telefone,
+      credito: this.cliente[0].credito,
+      status: this.cliente[0].status,
+      cep: [''],
+      rua: [''],
+      numero: [''],
+      complemento: [''],
+      bairro: [''],
+      cidade: [''],
+      estado: [''],
     });
   }
 
