@@ -13,13 +13,13 @@ export class BuscaClienteComponent {
 
   form: any;
   nome: string = '';
-  cpf: number = 0;
+  cpf: string = '';
   response: any;
 
   constructor(private formBuilder: FormBuilder,
               private buscaService: BuscaService,
-              private router: Router) 
-    { 
+              private router: Router)
+    {
       this.criarForma();
     }
 
@@ -35,13 +35,11 @@ export class BuscaClienteComponent {
     buscarCliente(): void{
       this.nome = this.form.get('nome').value;
       this.cpf = this.form.get('cpf').value;
-  
+
       this.buscaService.buscar(this.nome, this.cpf)
           .subscribe(
               response => {
                   this.response = response;
-                  sessionStorage.setItem('token', this.response.token);
-                  this.router.navigate(['/']);
               },
               err => {
                   this.response = err;

@@ -14,9 +14,9 @@ namespace oferta_domain.Services
             _clientesRepository = clientesRepository;
         }
 
-        public Cliente GetClienteByCPF(long cpf){
-            var cliente = _clientesRepository.getByCPF(cpf);
-            if(cliente.status == 7 || cliente.status == 9 || cliente.status == 21)
+        public IEnumerable<Cliente> GetClienteByCPF(string cpf){
+            var cliente = _clientesRepository.getByCPF(cpf).ToArray();
+            if(cliente[0].status == 7 || cliente[0].status == 9 || cliente[0].status == 21)
                 return null;
 
             return cliente;

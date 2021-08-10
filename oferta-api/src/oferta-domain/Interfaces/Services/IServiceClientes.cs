@@ -5,7 +5,7 @@ namespace oferta_domain.Interfaces
 {
     public interface IServiceClientes
     {
-         Cliente GetClienteByCPF(long cpf);
+         IEnumerable<Cliente> GetClienteByCPF(string cpf);
          IEnumerable<Cliente> GetClienteByName(string name);
     }
 }

@@ -6,8 +6,8 @@ namespace oferta_api.Helpers
     {
         public static bool ValidateCliente(Cliente cliente){
             if(string.IsNullOrEmpty(cliente.nome) ||
-                    cliente.cpf.Equals(0) ||
-                    cliente.telefone.Equals(0))
+                    string.IsNullOrEmpty(cliente.cpf) ||
+                    string.IsNullOrEmpty(cliente.telefone))
                 return false;
 
             return true;

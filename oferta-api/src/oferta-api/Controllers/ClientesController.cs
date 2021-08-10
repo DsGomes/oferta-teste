@@ -41,7 +41,7 @@ namespace oferta_api.Controllers
 
         [HttpGet]
         [Route("buscar-por-cpf")]
-        public ActionResult<Cliente> GetByCpf(long cpf)
+        public ActionResult<Cliente> GetByCpf(string cpf)
         {
             return Ok(_clientes.getByCPF(cpf));
         }

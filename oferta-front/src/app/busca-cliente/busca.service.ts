@@ -10,7 +10,8 @@ export class BuscaService {
   constructor(private http: HttpClient) { }
 
   nome: string = '';
-  cpf: number = 0;
+  cpf: string = '';
+  resultado: any;
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -21,11 +22,11 @@ export class BuscaService {
       )
   }
 
-  buscar(nome: string, cpf: number): Observable<object>{
+  buscar(nome: string, cpf: string): Observable<object>{
     if(nome.length > 0){
-      return this.http.get('https://localhost:5001/api/clientes/buscar-por-nome', this.httpOptions);
+      return this.http.get(`https://localhost:5001/api/clientes/buscar-por-nome?name=${nome}`, this.httpOptions);
     }else{
-      return this.http.get('https://localhost:5001/api/clientes/buscar-por-cpf', this.httpOptions);
+      return this.http.get(`https://localhost:5001/api/clientes/buscar-por-cpf?cpf=${cpf}`, this.httpOptions);
     }
   }
 }

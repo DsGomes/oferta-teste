@@ -13,9 +13,9 @@ namespace oferta_infra.Repositories
             _dbContext = dbContext;
         }
 
-        public Cliente getByCPF(long cpf)
+        public IEnumerable<Cliente> getByCPF(string cpf)
         {
-            return _dbContext.Set<Cliente>().Find(cpf);
+            return _dbContext.Set<Cliente>().Where(c=> c.cpf == cpf);
         }
 
         public IEnumerable<Cliente> getByName(string name)

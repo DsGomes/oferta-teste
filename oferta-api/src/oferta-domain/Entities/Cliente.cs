@@ -5,7 +5,7 @@ namespace oferta_domain.Entities
 {
     public class Cliente
     {
-        public Cliente(long cpf, string nome, long telefone, double credito)
+        public Cliente(string cpf, string nome, string telefone, double credito)
         {
             this.cpf = cpf;
             this.nome = nome;
@@ -16,9 +16,9 @@ namespace oferta_domain.Entities
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
         public int cod_cliente { get; private set; }
-        public long cpf { get; private set; }
+        public string cpf { get; private set; }
         public string nome { get; private set; }
-        public long telefone { get; private set; }
+        public string telefone { get; private set; }
         public double credito { get; private set; }
         public int status { get; private set; }
     }
