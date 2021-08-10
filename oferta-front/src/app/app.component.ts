@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'oferta-front';
+
+  sairSistema(): void{
+    localStorage.removeItem('token');
+  }
 }

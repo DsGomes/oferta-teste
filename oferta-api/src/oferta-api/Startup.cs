@@ -1,3 +1,4 @@
+using System.Net.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -5,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using oferta_infra;
-using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Services;
 using oferta_infra.Repositories;
 using oferta_api.Configurations;
 using Microsoft.OpenApi.Models;
@@ -73,6 +74,7 @@ namespace oferta_api
             services.AddScoped<IRepositoryVendas, RepositoryVendas>();
             services.AddScoped<IRepositoryUsuario, RepositoryUsuario>();
             services.AddScoped<IRepositoryEnderecos, RepositoryEndereco>();
+            services.AddScoped<IRepositoryStatus, RepositoryStatus>();
             services.AddScoped<IServiceClientes, ClienteService>();
 
             services.ConfigServiceAuthentication(Configuration);

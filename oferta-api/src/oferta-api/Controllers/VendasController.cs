@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using oferta_domain.Entities;
-using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Repositories;
 using oferta_domain.Interfaces.Services;
 
 namespace oferta_api.Controllers

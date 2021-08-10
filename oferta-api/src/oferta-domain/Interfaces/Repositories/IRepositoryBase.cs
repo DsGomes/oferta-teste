@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace oferta_domain.Interfaces
+namespace oferta_domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {

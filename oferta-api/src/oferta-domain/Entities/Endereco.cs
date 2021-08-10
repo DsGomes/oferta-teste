@@ -13,7 +13,7 @@ namespace oferta_domain.Entities
         public string bairro { get; set; }
         public string cidade { get; set; }
         public string estado { get; set; }
-        public long cep { get; set; }
+        public string cep { get; set; }
         public int cliente { get; set; }
     }
 }

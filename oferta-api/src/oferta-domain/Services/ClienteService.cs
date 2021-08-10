@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using oferta_domain.Entities;
-using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Repositories;
+using oferta_domain.Interfaces.Services;
 
 namespace oferta_domain.Services
 {

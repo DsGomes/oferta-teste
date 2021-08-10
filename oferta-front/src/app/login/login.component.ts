@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
             response => {
                 this.response = response;
                 sessionStorage.setItem('token', this.response.token);
-                this.router.navigate(['/cadastro-cliente']);
+                this.router.navigate(['/ofertas']);
             },
             err => {
                 this.response = err;

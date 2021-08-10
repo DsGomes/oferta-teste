@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using oferta_domain.Entities;
-using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Repositories;
+using oferta_domain.Interfaces.Services;
 
 namespace oferta_api.Controllers
 {
@@ -14,15 +15,25 @@ namespace oferta_api.Controllers
     {
         private readonly ILogger<ClientesController> _logger;
         private readonly IRepositoryClientes _clientes;
+        private readonly IRepositoryStatus _status;
         private readonly IServiceClientes _clienteService;
 
         public ClientesController(ILogger<ClientesController> logger,
                                     IRepositoryClientes clientes,
+                                    IRepositoryStatus status,
                                     IServiceClientes clienteService)
         {
             _logger = logger;
             _clientes = clientes;
+            _status = status;
             _clienteService = clienteService;
+        }
+
+        [HttpGet]
+        [Route("buscar-status")]
+        public ActionResult<IEnumerable<StatusCliente>> GetStatus()
+        {
+            return Ok(_status.GetAll());
         }
 
         [HttpGet]

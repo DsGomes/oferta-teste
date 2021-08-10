@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using oferta_domain.Interfaces;
+using oferta_domain.Interfaces.Repositories;
 
 namespace oferta_infra.Repositories
 {

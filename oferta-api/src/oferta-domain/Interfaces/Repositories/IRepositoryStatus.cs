@@ -3,8 +3,7 @@ using oferta_domain.Entities;
 
 namespace oferta_domain.Interfaces.Repositories
 {
-    public interface IRepositoryStatus
+    public interface IRepositoryStatus : IRepositoryBase<StatusCliente>
     {
-         IEnumerable<StatusCliente> GetStatusCliente();
     }
 }
